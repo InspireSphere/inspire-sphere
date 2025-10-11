@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | InspireSphere</title>
+    <style>
+        /* CSS for the 404 Page */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .error-container {
+            max-width: 600px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: #007bff;
+            margin: 0;
+            animation: bounce 2s infinite; /* Animation effect */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #212529;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-link:hover {
+            background-color: #1e7e34;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1>Oops! Page Not Found</h1>
+        <p>It seems the file you are looking for has taken a detour. Let's get you back on track.</p>
+        <a href="/" class="home-link">Go to InspireSphere Homepage</a>
+    </div>
+</body>
+</html>
