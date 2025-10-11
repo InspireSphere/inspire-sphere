@@ -3,139 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InspireSphere | Digital Solutions & Expert Team - Web Development, Ethical Hacking, Design</title>
-    <meta name="description" content="InspireSphere offers professional digital solutions including ethical hacking, high-quality web development, graphic design, and expert SEO strategy by Hussain Jawad. 100% Responsive & Creative.">
-    <meta name="keywords" content="InspireSphere, Ethical Hacking, Web Development, Graphic Design, SEO Expert, Hussain Jawad, Digital Solutions, Content Strategy, Frontend, Backend">
-    <meta name="author" content="InspireSphere Team">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+    <!-- SEO Optimization -->
+    <title>Daily Market Ventures | High-Margin Clothing Business Investment Opportunity</title>
+    <meta name="description" content="Invest in a scalable, 100% margin children's clothing stall model operating in Lahore's daily markets. Achieve over ₹1,00,000 monthly profit potential with low overhead.">
+    <meta name="keywords" content="clothing business investment, Lahore market, high margin retail, scalable business proposal, children's clothing venture">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for professional, clear graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <style>
+        /* Custom scroll behavior for smooth navigation */
+        html { scroll-behavior: smooth; }
+        /* Set font to Inter as per guidelines */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    </style>
+    <script>
+        // Configure Tailwind to use our custom color palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'emerald-invest': '#047857', // Rich Emerald Green for growth/profit
+                        'emerald-light': '#34d399', // Lighter shade for accents
+                        'gray-dark': '#1f2937',     // Dark gray for text/background contrast
+                        'gray-subtle': '#f3ffef',   // Off-white/light green background
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
 
-    <header class="main-header">
-        <div class="container nav-content">
-            <h1 class="logo">InspireSphere</h1>
-            <nav class="main-nav" id="main-nav">
-                <ul>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#services" class="nav-link">Our Services</a></li>
-                    <li><a href="#team" class="nav-link">Our Experts</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
+        // --- Data Variables from Proposal ---
+        const COST_PER_SUIT = 100;
+        const SELL_PRICE = 200;
+        const DAILY_EXPENSE = 1100;
+        const DAILY_PROFIT_1_STALL = 4900;
+        const WEEKLY_PROFIT_1_STALL = 34300;
+        const WEEKLY_PROFIT_5_STALLS = 171500;
+        const MONTHLY_PROFIT_TARGET = '₹1,00,000+';
+        const CONTACT_EMAIL = 'husaainhassan88@gmail.com'; // CONFIRMED CORRECT EMAIL
+
+        /**
+         * Converts a number to a clean, localized string (e.g., 4900 -> ₹4,900)
+         * @param {number} value
+         */
+        const formatCurrency = (value) => {
+            return `₹${value.toLocaleString('en-IN')}`;
+        };
+
+        // Function to initialize all Chart.js visualizations
+        function setupCharts() {
+            // 1. Unit Economics Chart (Bar)
+            const unitEconomicsCtx = document.getElementById('unitEconomicsChart').getContext('2d');
+            new Chart(unitEconomicsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Cost of Goods (COG)', 'Selling Price', 'Gross Profit'],
+                    datasets: [{
+                        label: 'Amount (₹) Per Suit',
+                        data: [COST_PER_SUIT, SELL_PRICE, SELL_PRICE - COST_PER_SUIT],
+                        backgroundColor: [
+                            '#ef4444', // Red for cost
+                            '#3b82f6', // Blue for revenue
+                            '#047857'  // Emerald for profit
+                        ],
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Unit Economics: Profit per Suit', font: { size: 16, family: 'Inter' } },
+                        tooltip: { callbacks: { label: (context) => ` ${context.dataset.label}: ${formatCurrency(context.parsed.y)}` } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Amount (₹)' } }
+                    }
+                }
+            });
+
+            // 2. Projected Profit Growth Chart (Line)
+            const growthProjectionCtx = document.getElementById('growthProjectionChart').getContext('2d');
+            const weeklyProfitPerStall = WEEKLY_PROFIT_1_STALL; // 34300
+            const projectionData = [
+                weeklyProfitPerStall * 1,
+                weeklyProfitPerStall * 2,
+                weeklyProfitPerStall * 3,
+                weeklyProfitPerStall * 4,
+                weeklyProfitPerStall * 5,
+            ];
+
+            new Chart(growthProjectionCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1 Stall', '2 Stalls', '3 Stalls', '4 Stalls', '5 Stalls (Target)'],
+                    datasets: [{
+                        label: 'Weekly Profit Potential',
+                        data: projectionData,
+                        borderColor: '#047857',
+                        backgroundColor: 'rgba(4, 120, 87, 0.2)',
+                        tension: 0.4,
+                        pointBackgroundColor: '#047857',
+                        pointRadius: 5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true },
+                        title: { display: true, text: 'Scalability: Weekly Profit Projection', font: { size: 16, family: 'Inter' } },
+                        tooltip: { callbacks: { label: (context) => ` ${context.dataset.label}: ${formatCurrency(context.parsed.y)}` } }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Weekly Profit (₹)' },
+                            // Custom tick formatting for Rupee symbol
+                            ticks: { callback: (value) => formatCurrency(value) }
+                        }
+                    }
+                }
+            });
+
+            // Populate the KPI cards with formatted data
+            document.getElementById('kpi-daily-profit').textContent = formatCurrency(DAILY_PROFIT_1_STALL);
+            document.getElementById('kpi-weekly-profit').textContent = formatCurrency(WEEKLY_PROFIT_1_STALL);
+            document.getElementById('kpi-5-stall-potential').textContent = formatCurrency(WEEKLY_PROFIT_5_STALLS);
+            document.getElementById('kpi-monthly-target').textContent = MONTHLY_PROFIT_TARGET;
+            
+            // Populate the contact email address in the footer
+            const emailDisplay = document.getElementById('contact-email-display');
+            if (emailDisplay) {
+                emailDisplay.textContent = CONTACT_EMAIL;
+            }
+        }
+
+        // Initialize the charts when the window loads
+        window.onload = setupCharts;
+    </script>
+</head>
+<body class="bg-gray-subtle text-gray-dark font-sans">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo Concept: Daily Market Ventures (Growth Arrow) -->
+            <div class="flex items-center space-x-2">
+                <!-- Simple SVG Icon representing a market stall roof with a growth arrow -->
+                <svg class="w-8 h-8 text-emerald-invest" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l-7-7m7 7v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-10-4h2.5M7 16h2.5M10 16h2.5M13 16h2.5"></path>
+                    <!-- Small upward path for growth -->
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 2v2"></path>
+                </svg>
+                <span class="text-xl font-extrabold text-gray-dark">Daily Market Ventures</span>
+            </div>
+            <!-- Navigation -->
+            <nav class="space-x-4">
+                <a href="#overview" class="text-gray-dark hover:text-emerald-invest transition duration-150">Overview</a>
+                <a href="#financials" class="text-gray-dark hover:text-emerald-invest transition duration-150">Financials</a>
+                <a href="#strategy" class="text-gray-dark hover:text-emerald-invest transition duration-150">Strategy</a>
+                <a href="#contact" class="px-3 py-1 bg-emerald-invest text-white rounded-lg shadow-lg hover:bg-emerald-light transition duration-150">Invest Now</a>
             </nav>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div class="container">
-            <h2 class="hero-title">Elevate Your Digital Presence with **InspireSphere**</h2>
-            <p class="hero-subtitle">A collective of **Ethical Hackers**, **Web Developers**, and **Creative Designers** dedicated to secure and stunning digital solutions.</p>
-            <a href="#contact" class="btn btn-primary">Start Your Project Today</a>
-        </div>
-    </section>
-    
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">Who We Are - The **InspireSphere** Advantage</h2>
-            <p class="section-description">InspireSphere is a dedicated team of digital specialists. We don't just build websites; we craft secure, fast, and visually appealing digital experiences that convert. Our collective expertise ensures **100% responsive**, **SEO-friendly**, and **humanized** solutions tailored for Android, Windows, and all platforms.</p>
-            <div class="team-skills-grid">
-                <div class="skill-card"><i class="fas fa-shield-alt"></i> **Ethical Hacking** (Security Audits)</div>
-                <div class="skill-card"><i class="fas fa-code"></i> **Web Development** (Full-Stack)</div>
-                <div class="skill-card"><i class="fas fa-paint-brush"></i> **Graphic Design** (Branding & UI/UX)</div>
-                <div class="skill-card"><i class="fas fa-search-dollar"></i> **SEO & Strategy** (Visibility & Growth)</div>
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="hero" class="bg-emerald-invest text-white pt-24 pb-16">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
+                    Achieve <span class="text-emerald-light">100% Markup</span>: Scalable Market Retail Investment
+                </h1>
+                <p class="text-xl sm:text-2xl font-light mb-8 opacity-90">
+                    A single-stall concept with the potential to multiply across multiple daily markets, offering strong profits and guaranteed scalability for new and existing investors in Lahore, Pakistan.
+                </p>
+                <a href="#financials" class="bg-white text-emerald-invest font-bold text-lg py-3 px-8 rounded-xl shadow-2xl hover:bg-gray-200 transition duration-300 transform hover:scale-105 inline-block">
+                    Explore Key Figures
+                </a>
             </div>
-        </div>
-    </section>
-    
-    <section id="services" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Our Core Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3><i class="fas fa-rocket"></i> **Full-Service Web Development**</h3>
-                    <p>Creating fast, modern, and scalable websites and applications from concept to deployment, ensuring cross-platform compatibility.</p>
-                </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-user-shield"></i> **Cyber Security & Hacking**</h3>
-                    <p>Comprehensive security audits, penetration testing, and vulnerability assessments to protect your digital assets from threats.</p>
-                </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-palette"></i> **Branding & Graphic Design**</h3>
-                    <p>Developing compelling visual identities, logos, UI/UX design, and marketing materials that resonate with your audience.</p>
-                </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-chart-line"></i> **SEO & Content Strategy**</h3>
-                    <p>Driving organic traffic, improving search engine rankings, and creating high-quality, conversion-focused content.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="team" class="section">
-        <div class="container">
-            <h2 class="section-title">Meet Our Key Expert - Digital Strategy Lead</h2>
-            <div class="expert-profile">
-                <div class="profile-header">
-                    <h3>**Hussain Jawad**</h3>
-                    <p class="expert-title">**SEO Expert | Content Strategist | Digital Solutions Specialist**</p>
-                </div>
-                
-                <div class="profile-about">
-                    <h4>About Me</h4>
-                    <p>I am Hussain Jawad, an experienced SEO Expert and Digital Marketing Strategist. I specialize in on-page SEO, keyword research, technical SEO, and high-quality content writing. Using tools like Ahrefs, Yoast, and Surfer SEO, I help websites rank higher on Google.</p>
-                </div>
+        <!-- 2. Financial Summary (KPIs) -->
+        <section id="financials" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-dark">Core Financial Performance (Single Stall)</h2>
 
-                <div class="profile-services">
-                    <h4>My Core Contributions:</h4>
-                    <div class="service-list-item">
-                        <h5><i class="fas fa-cogs"></i> On-Page SEO Optimization</h5>
-                        <p>Title & meta description optimization, H1/H2/H3 structure, keyword integration, internal linking, and schema markup for better rankings.</p>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                    <!-- KPI Card 1: Daily Profit -->
+                    <div class="bg-gray-subtle p-6 rounded-xl shadow-lg border-b-4 border-emerald-invest">
+                        <p class="text-xl font-semibold text-emerald-invest">Daily Average Profit</p>
+                        <p id="kpi-daily-profit" class="text-4xl font-extrabold mt-2 text-gray-dark">...</p>
+                        <p class="text-sm text-gray-500">Based on 60 suits/day, post-expense.</p>
                     </div>
-                    <div class="service-list-item">
-                        <h5><i class="fas fa-file-alt"></i> Content Writing</h5>
-                        <p>SEO-friendly articles, blogs, and landing page content tailored for your niche and target audience to improve visibility and engagement.</p>
+
+                    <!-- KPI Card 2: Weekly Profit -->
+                    <div class="bg-gray-subtle p-6 rounded-xl shadow-lg border-b-4 border-emerald-invest">
+                        <p class="text-xl font-semibold text-emerald-invest">Weekly Profit (1 Stall)</p>
+                        <p id="kpi-weekly-profit" class="text-4xl font-extrabold mt-2 text-gray-dark">...</p>
+                        <p class="text-sm text-gray-500">Consistent, low-risk revenue.</p>
                     </div>
-                    <div class="service-list-item">
-                        <h5><i class="fas fa-laptop-code"></i> Technical SEO</h5>
-                        <p>Website audit, site speed optimization, mobile responsiveness, sitemap, robots.txt setup, and best practices for Google Search Console.</p>
+
+                    <!-- KPI Card 3: 5-Stall Potential -->
+                    <div class="bg-gray-subtle p-6 rounded-xl shadow-lg border-b-4 border-emerald-invest">
+                        <p class="text-xl font-semibold text-emerald-invest">5-Stall Weekly Potential</p>
+                        <p id="kpi-5-stall-potential" class="text-4xl font-extrabold mt-2 text-gray-dark">...</p>
+                        <p class="text-sm text-gray-500">The immediate scalability blueprint.</p>
+                    </div>
+
+                    <!-- KPI Card 4: 6-Month Target -->
+                    <div class="bg-gray-subtle p-6 rounded-xl shadow-lg border-b-4 border-emerald-invest">
+                        <p class="text-xl font-semibold text-emerald-invest">6-Month Profit Target</p>
+                        <p id="kpi-monthly-target" class="text-4xl font-extrabold mt-2 text-gray-dark">...</p>
+                        <p class="text-sm text-gray-500">Clear goal with reinvestment.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="profile-portfolio">
-                    <h4>Portfolio & Contact</h4>
-                    <p>Check out my work on <a href="#" target="_blank">Fiverr</a> and <a href="#" target="_blank">GitHub Pages</a>.</p>
-                    <p>Email: <a href="mailto:hushackinseconds@gmail.com">hushackinseconds@gmail.com</a></p>
-                    <a href="#" class="btn btn-secondary" target="_blank">Hire Me on Fiverr</a>
+        <!-- 3. Business Model and Unit Economics -->
+        <section id="model" class="py-16 bg-gray-subtle">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-dark">The Simple & Profitable Business Model</h2>
+                <p class="text-center text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+                    Our success is built on clear, high-margin unit economics and low operational friction.
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Unit Economics Graph -->
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl">
+                        <canvas id="unitEconomicsChart"></canvas>
+                    </div>
+
+                    <!-- Right: Unit and Daily Cost Breakdown -->
+                    <div class="space-y-6">
+                        <div class="p-5 bg-white rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-semibold text-emerald-invest mb-3">Product Snapshot</h3>
+                            <ul class="space-y-2 text-lg">
+                                <li class="flex justify-between items-center border-b pb-2">
+                                    <span class="font-medium">Product Category:</span>
+                                    <span class="font-bold text-right">Children’s 2-piece suits (B-class)</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b pb-2">
+                                    <span class="font-medium">Cost per suit (COG):</span>
+                                    <span class="font-bold text-right text-red-600">₹100</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b pb-2">
+                                    <span class="font-medium">Selling Price:</span>
+                                    <span class="font-bold text-right text-blue-600">₹200</span>
+                                </li>
+                                <li class="flex justify-between items-center pt-2">
+                                    <span class="font-extrabold">Gross Profit Margin:</span>
+                                    <span class="font-extrabold text-emerald-invest">100% Markup</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-semibold text-emerald-invest mb-3">Daily Fixed Expenses (1 Stall)</h3>
+                            <ul class="space-y-2 text-lg">
+                                <li class="flex justify-between">
+                                    <span>Stall Rent/Setup:</span>
+                                    <span class="font-semibold">₹500</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Food/Misc. Expenses:</span>
+                                    <span class="font-semibold">₹600</span>
+                                </li>
+                                <li class="flex justify-between pt-2 border-t border-gray-200 mt-2">
+                                    <span class="font-extrabold">Total Daily Overhead:</span>
+                                    <span class="font-extrabold text-red-600">₹1,100</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Ready to Transform Your Digital World?</h2>
-            <p class="section-description">Let's discuss how InspireSphere's combined expertise in security, development, design, and SEO can achieve your goals.</p>
-            <form class="contact-form" action="https://formspree.io/f/yourformid" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="_replyto" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-            <small>*Note: Replace the form action with a service like Formspree or Netlify Forms for full functionality.</small>
-        </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 **InspireSphere** | Digital Solutions & Expert Team | All Rights Reserved.</p>
-            <p class="footer-note">Website by the **InspireSphere** Web Development Team.</p>
-        </div>
+        <!-- 4. Growth Strategy & Scalability -->
+        <section id="strategy" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Removed LaTeX to improve simple text parsing -->
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-dark">Scalability: The Path to ₹1,71,500/Week</h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- Left: Growth Projection Chart -->
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border border-gray-200">
+                        <canvas id="growthProjectionChart"></canvas>
+                        <p class="text-center text-sm text-gray-500 mt-4">
+                            *Weekly Profit potential increases linearly by replicating the proven single-stall model.
+                        </p>
+                    </div>
+
+                    <!-- Right: Growth Phases -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-emerald-invest mb-4">4-Phase Expansion Blueprint</h3>
+                        <ol class="space-y-4">
+                            <li class="p-4 bg-gray-50 rounded-lg shadow-md border-l-4 border-emerald-invest">
+                                <span class="font-bold text-xl block mb-1">Phase 1: Stabilization & Data</span>
+                                <p>Strengthen single-stall sales (60+ suits/day) and gather essential, replicable market data from the core Lahore bazaar.</p>
+                            </li>
+                            <li class="p-4 bg-gray-50 rounded-lg shadow-md border-l-4 border-emerald-invest">
+                                <span class="font-bold text-xl block mb-1">Phase 2: Market Expansion</span>
+                                <p>Expand to new markets in nearby high-footfall areas using initial profits to fund additional stock and setup.</p>
+                            </li>
+                            <li class="p-4 bg-gray-50 rounded-lg shadow-md border-l-4 border-emerald-invest">
+                                <span class="font-bold text-xl block mb-1">Phase 3: Replication & Staffing</span>
+                                <p>Recruit and train reliable sellers to manage the replicated model in 3–5 markets, establishing regional micro-hubs.</p>
+                            </li>
+                            <li class="p-4 bg-gray-50 rounded-lg shadow-md border-l-4 border-emerald-invest">
+                                <span class="font-bold text-xl block mb-1">Phase 4: Profit Maximization</span>
+                                <p>Centralize stock purchasing to secure higher volume discounts, reducing per-unit cost and significantly increasing the profit margin beyond 100%.</p>
+                            </li>
+                        </ol>
+                        <p class="text-md font-medium text-gray-700 pt-4">
+                             Investor Focus: We maintain transparent reporting, guarantee clear monthly reporting, and follow a steady, profitable reinvestment structure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="contact" class="py-16 bg-gray-dark text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-4">Ready to Invest in Proven Growth?</h2>
+                <p class="text-xl font-light mb-8">
+                    Our model is stable, scalable, and focused on transparent, high-return operations in a high-demand market. Connect with us to discuss tailored investment options.
+                </p>
+                <!-- This is the mailto link that ensures the user can click to email you -->
+                <a href="mailto:husaainhassan88@gmail.com" class="bg-emerald-light text-gray-dark font-bold text-xl py-4 px-10 rounded-full shadow-2xl hover:bg-white transition duration-300 transform hover:scale-105 inline-block">
+                    Email for Investor Inquiries
+                </a>
+                <p class="mt-8 text-sm opacity-70">
+                    Contact Management Team: <span class="font-semibold" id="contact-email-display"></span>
+                </p>
+                <p class="mt-2 text-xs opacity-50">
+                    Note: Personal names are withheld for privacy. This document represents the business concept only.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6 text-sm">
+        <p>&copy; 2024 Daily Market Ventures. All Rights Reserved. Investment Proposal Overview. | Location: Lahore, Pakistan</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
