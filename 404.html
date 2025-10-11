@@ -3,86 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | InspireSphere</title>
+    <!-- SEO & Humanization: A good 404 page guides the user and uses human language. -->
+    <title>404 | Lost in the Digital Sphere - InspireSphere</title>
+    <meta name="description" content="We couldn't find the page you requested. Please return to the InspireSphere homepage for expert digital solutions in web development, SEO, and ethical hacking.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS for the 404 Page */
+        /* General Reset and Base Styles */
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #28a745; /* Green */
+            --light-bg: #f4f6f8;
+            --white: #fff;
+            --dark: #212529;
+            --font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
+            font-family: var(--font-family);
+            background-color: var(--light-bg);
+            color: var(--dark);
             text-align: center;
-            padding: 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden; /* For smooth background animation */
         }
 
+        /* Background Animated Circles (More engaging) */
+        .background-circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .background-circles div {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 123, 255, 0.15); /* Light Primary Color */
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+        .background-circles div:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+        .background-circles div:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .background-circles div:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+        .background-circles div:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+        .background-circles div:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+        .background-circles div:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+        .background-circles div:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+        }
+
+        /* Main Content Container */
         .error-container {
-            max-width: 600px;
-            padding: 30px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            max-width: 90%;
+            width: 500px;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease-in-out;
         }
 
+        /* 404 Code Animation (Bounce) */
         .error-code {
             font-size: 8rem;
-            font-weight: 700;
-            color: #007bff;
+            font-weight: 800;
+            color: var(--primary-color);
             margin: 0;
-            animation: bounce 2s infinite; /* Animation effect */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s infinite;
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-20px);
-            }
-            60% {
-                transform: translateY(-10px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
         }
 
         h1 {
-            font-size: 2rem;
-            color: #212529;
+            font-size: 1.8rem;
+            color: var(--dark);
             margin-top: 10px;
+            margin-bottom: 5px;
         }
 
-        p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 20px;
+        .human-message {
+            font-size: 1.1rem; /* Slightly larger for better readability */
+            color: #6c757d;
+            margin-bottom: 40px; /* Increased margin since the search bar is gone */
+            font-weight: 400;
         }
 
+        /* Button Styling */
         .home-link {
             display: inline-block;
-            padding: 10px 25px;
-            background-color: #28a745;
-            color: #fff;
-            border-radius: 5px;
+            padding: 12px 35px; /* Slightly larger button */
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); /* Subtle button shadow */
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .home-link:hover {
             background-color: #1e7e34;
+            transform: translateY(-2px);
         }
 
+        /* Responsive adjustments */
+        @media (max-width: 500px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .error-container {
+                padding: 30px 20px;
+            }
+            .human-message {
+                margin-bottom: 30px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="background-circles">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
     <div class="error-container">
         <div class="error-code">404</div>
-        <h1>Oops! Page Not Found</h1>
-        <p>It seems the file you are looking for has taken a detour. Let's get you back on track.</p>
-        <a href="/" class="home-link">Go to InspireSphere Homepage</a>
+        <h1>Whoops! You've Gone Off-Track.</h1>
+        <p class="human-message">It looks like the link you clicked doesn't lead to a valid page in the **InspireSphere**. Our digital crew will investigate, but in the meantime, the best solution is a quick trip back to our secure home base!</p>
+        
+        <!-- Homepage Button with specific URL -->
+        <a href="https://inspiresphere.github.io/inspire-sphere/" class="home-link">Return to InspireSphere Homepage</a>
     </div>
 </body>
 </html>
