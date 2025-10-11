@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Optimization -->
     <title>Daily Market Ventures | High-Margin Clothing Business Investment Opportunity</title>
-    <meta name="description" content="Invest in a scalable, 100% margin children's clothing stall model operating in Lahore's daily markets. Achieve over ₹1,00,000 monthly profit potential with low overhead.">
+    <meta name="description" content="Invest in a scalable, 100% margin children's clothing stall model operating in Lahore's daily markets. Achieve over  Rs 1,00,000 monthly profit potential with low overhead.">
     <meta name="keywords" content="clothing business investment, Lahore market, high margin retail, scalable business proposal, children's clothing venture">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js for professional, clear graphs -->
@@ -41,15 +41,15 @@
         const DAILY_PROFIT_1_STALL = 4900;
         const WEEKLY_PROFIT_1_STALL = 34300;
         const WEEKLY_PROFIT_5_STALLS = 171500;
-        const MONTHLY_PROFIT_TARGET = '₹1,00,000+';
+        const MONTHLY_PROFIT_TARGET = ' Rs 1,00,000+';
         const CONTACT_EMAIL = 'husaainhassan88@gmail.com'; // CONFIRMED CORRECT EMAIL
 
         /**
-         * Converts a number to a clean, localized string (e.g., 4900 -> ₹4,900)
+         * Converts a number to a clean, localized string (e.g., 4900 ->  Rs 4,900)
          * @param {number} value
          */
         const formatCurrency = (value) => {
-            return `₹${value.toLocaleString('en-IN')}`;
+            return ` Rs ${value.toLocaleString('en-IN')}`;
         };
 
         // Function to initialize all Chart.js visualizations
@@ -61,7 +61,7 @@
                 data: {
                     labels: ['Cost of Goods (COG)', 'Selling Price', 'Gross Profit'],
                     datasets: [{
-                        label: 'Amount (₹) Per Suit',
+                        label: 'Amount ( Rs ) Per Suit',
                         data: [COST_PER_SUIT, SELL_PRICE, SELL_PRICE - COST_PER_SUIT],
                         backgroundColor: [
                             '#ef4444', // Red for cost
@@ -79,7 +79,7 @@
                         tooltip: { callbacks: { label: (context) => ` ${context.dataset.label}: ${formatCurrency(context.parsed.y)}` } }
                     },
                     scales: {
-                        y: { beginAtZero: true, title: { display: true, text: 'Amount (₹)' } }
+                        y: { beginAtZero: true, title: { display: true, text: 'Amount ( Rs )' } }
                     }
                 }
             });
@@ -119,7 +119,7 @@
                     scales: {
                         y: {
                             beginAtZero: true,
-                            title: { display: true, text: 'Weekly Profit (₹)' },
+                            title: { display: true, text: 'Weekly Profit ( Rs )' },
                             // Custom tick formatting for Rupee symbol
                             ticks: { callback: (value) => formatCurrency(value) }
                         }
@@ -247,11 +247,11 @@
                                 </li>
                                 <li class="flex justify-between items-center border-b pb-2">
                                     <span class="font-medium">Cost per suit (COG):</span>
-                                    <span class="font-bold text-right text-red-600">₹100</span>
+                                    <span class="font-bold text-right text-red-600"> Rs 100</span>
                                 </li>
                                 <li class="flex justify-between items-center border-b pb-2">
                                     <span class="font-medium">Selling Price:</span>
-                                    <span class="font-bold text-right text-blue-600">₹200</span>
+                                    <span class="font-bold text-right text-blue-600"> Rs 200</span>
                                 </li>
                                 <li class="flex justify-between items-center pt-2">
                                     <span class="font-extrabold">Gross Profit Margin:</span>
@@ -264,15 +264,15 @@
                             <ul class="space-y-2 text-lg">
                                 <li class="flex justify-between">
                                     <span>Stall Rent/Setup:</span>
-                                    <span class="font-semibold">₹500</span>
+                                    <span class="font-semibold"> Rs 500</span>
                                 </li>
                                 <li class="flex justify-between">
                                     <span>Food/Misc. Expenses:</span>
-                                    <span class="font-semibold">₹600</span>
+                                    <span class="font-semibold"> Rs 600</span>
                                 </li>
                                 <li class="flex justify-between pt-2 border-t border-gray-200 mt-2">
                                     <span class="font-extrabold">Total Daily Overhead:</span>
-                                    <span class="font-extrabold text-red-600">₹1,100</span>
+                                    <span class="font-extrabold text-red-600"> Rs 1,100</span>
                                 </li>
                             </ul>
                         </div>
@@ -286,7 +286,7 @@
         <section id="strategy" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Removed LaTeX to improve simple text parsing -->
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-dark">Scalability: The Path to ₹1,71,500/Week</h2>
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-dark">Scalability: The Path to  Rs 1,71,500/Week</h2>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <!-- Left: Growth Projection Chart -->
@@ -354,3 +354,4 @@
 
 </body>
 </html>
+
